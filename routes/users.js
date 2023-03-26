@@ -3,7 +3,7 @@ const router = express.Router();
 const connection = require('../connect')
 
 
-router.get('', (req, res) => {
+router.get('/', (req, res) => {
   const query = "SELECT * FROM `user`"
   connection.query(query,(err, results, fields)=> {
           console.log(results); // results contains rows returned by server
@@ -18,7 +18,7 @@ router.get('', (req, res) => {
   );
 })
 
-router.post('', (req, res) => {
+router.post('/', (req, res) => {
   const { name, email } = req.body;
   const newUser = { name, email };
   const query = 'INSERT INTO user SET ?';
