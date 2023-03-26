@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const connection = require('../connect')
 
 
@@ -35,7 +35,6 @@ router.put('/:id', (req, res) => {
   const userId =req.params["id"];
   const { name, email } = req.body;
   const userData = { name, email };
-  // console.log(req.params["id"]);
   const query = 'UPDATE user SET ? WHERE id = ?';
   connection.query(query, [userData,userId], (err, results) => {
       if (err) {
