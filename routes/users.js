@@ -6,14 +6,14 @@ const connection = require('../connect')
 router.get('/', (req, res) => {
   const query = "SELECT * FROM `user`"
   connection.query(query,(err, results, fields)=> {
-          console.log(results); // results contains rows returned by server
+          console.log(results); 
           if (err) {
               return res.status(500).json({ message: err });
 
           } else {
               return res.status(200).json({ data: results });
           }
-          // console.log(fields); // fields contains extra meta data about results, if available
+          
       }
   );
 })
